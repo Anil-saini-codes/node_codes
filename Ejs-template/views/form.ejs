@@ -1,0 +1,23 @@
+  <%- include('header') %>
+        <div class="row">
+            <div class="col">
+                <form action="/submit" method="POST">
+                    Enter your name: <input type="text" name="myname">
+                    <br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <% if (message) { %>
+                    <p><%= message %></p>
+                <% } %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="/images/background-png.png" alt="Image" width="300px">
+            </div>
+        </div>
+        <%- include('footer') %>
