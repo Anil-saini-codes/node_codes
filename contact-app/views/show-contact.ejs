@@ -1,0 +1,55 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container mt-5">
+  <div class="card card-custom">
+
+    <!-- Header -->
+    <div class="card-header-custom">
+      Contact Details
+    </div>
+
+    <!-- Content -->
+    <div class="card-body">
+
+      <div class="row mb-3">
+        <div class="col-md-3 label">First Name</div>
+        <div class="col-md-9 value"><%= contact.firstName %></div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3 label">Last Name</div>
+        <div class="col-md-9 value"><%= contact.lastName %></div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3 label">Email</div>
+        <div class="col-md-9 value"><%= contact.email %></div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3 label">Phone</div>
+        <div class="col-md-9 value"><%= contact.phone %></div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3 label">Address</div>
+        <div class="col-md-9 value"><%= contact.address %>
+      </div>
+
+      <hr>
+
+      <!-- Actions -->
+      <div class="text-center">
+        <a href="/update-contact/<%= contact._id %>" class="btn btn-edit me-2">Edit</a>
+        <form action="/delete-contact/<%= contact._id %>" method="POST" style="display:inline;">
+          <button type="submit" class="btn btn-delete me-2">Delete</button>
+        </form>
+        <a href="/" class="btn btn-cancel">Cancel</a>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
