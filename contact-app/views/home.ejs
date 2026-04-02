@@ -25,10 +25,10 @@
       </thead>
 
       <tbody>
-
+        <% var srno =1 %>
         <% contacts.forEach(contact => { %>
             <tr>
-          <td>1</td>
+          <td><%= srno++ %></td>
           <td><%= contact.firstName %></td>
           <td><%= contact.lastName %></td>
           <td><%= contact.email %></td>
