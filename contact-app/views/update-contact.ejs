@@ -10,40 +10,40 @@
 
     <!-- Form -->
     <div class="card-body">
-      <form action="/update-contact" method="POST">
+      <form action="/update-contact/<%= contact._id %>" method="POST">
 
         <div class="row mb-3">
           <label class="col-md-3 col-form-label">First Name</label>
           <div class="col-md-9">
-            <input type="text" name="firstName" class="form-control" required>
+            <input type="text" name="firstName" value="<%= contact.firstName %>" class="form-control" required>
           </div>
         </div>
 
         <div class="row mb-3">
           <label class="col-md-3 col-form-label">Last Name</label>
           <div class="col-md-9">
-            <input type="text" name="lastName" class="form-control" required>
+            <input type="text" name="lastName" value="<%= contact.lastName %>" class="form-control" required>
           </div>
         </div>
 
         <div class="row mb-3">
           <label class="col-md-3 col-form-label">Email</label>
           <div class="col-md-9">
-            <input type="email" name="email" class="form-control" required>
+            <input type="email" name="email" value="<%= contact.email %>"  class="form-control" required>
           </div>
         </div>
 
         <div class="row mb-3">
           <label class="col-md-3 col-form-label">Phone</label>
           <div class="col-md-9">
-            <input type="text" name="phone" class="form-control" required>
+            <input type="text" name="phone" value="<%= contact.phone %>" class="form-control" required>
           </div>
         </div>
 
         <div class="row mb-3">
           <label class="col-md-3 col-form-label">Address</label>
           <div class="col-md-9">
-            <textarea name="address" rows="4" class="form-control"></textarea>
+            <textarea name="address" rows="4" class="form-control"><%= contact.address %></textarea>
           </div>
         </div>
 

@@ -31,22 +31,50 @@ app.get('/show-contact/:id', async (req, res) => {
 
 app.get('/add-contact', (req, res) => {
     res.render('add-contact');
+   
 });
 
-app.post('/add-contact', (req, res) => {
-    res.send('Add Contact Page');
+app.post('/add-contact', async (req, res) => {
+
+    await Contact.create(req.body); //moangoose method to create a new contact
+    res.redirect('/');
+
+    // const { firstName, lastName, email, phone, address } = req.body;
+    // const newContact = new Contact({
+    //     firstName,
+    //     lastName,
+    //     email,
+    //     phone,
+    //     address
+    // });
+    // newContact.save().then(() => {
+    //     res.redirect('/');
+    // }).catch((err) => {
+    //     res.send('Failed to add contact');
+    // });
+
+
+
+    //res.send('Add Contact Page');
+     //res.send(req.body);
 });
 
-app.get('/update-contact/:id', (req, res) => {
-    res.render('update-contact');
+app.get('/update-contact/:id', async (req, res) => {
+    const contactId = req.params.id;
+    const contact = await Contact.findById(contactId); //mongoose method to find contact by id
+    res.render('update-contact', { contact });
 });
 
-app.post('/update-contact/:id', (req, res) => {
-   res.render('update-contact');
+app.post('/update-contact/:id', async (req, res) => {
+    const contactId = req.params.id;
+    await Contact.findByIdAndUpdate(contactId, req.body); //mongoose method to update contact by id
+    res.redirect('/');
 });
 
-app.post('/delete-contact/:id', (req, res) => {
-    res.send('Delete Contact Page');
+app.get('/delete-contact/:id', async (req, res) => {
+    const contactId = req.params.id;
+    await Contact.findByIdAndDelete(contactId); //mongoose method to delete contact by id
+    res.redirect('/');
 });
 
 app.listen(3000, () => {
