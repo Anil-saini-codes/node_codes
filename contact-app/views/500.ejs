@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="container mt-5">
+
+  <!-- Header -->
+  <div class="header-bar">
+    <h3>500 Server Error </h3>
+   
+  </div>
+
+  <!-- Table -->
+  <div class="card-body">
+        <% if(message) { %>
+            <div class="alert alert-danger">
+                <%= message %>
+            </div>  
+        <% } else { %>
+            <div class="alert alert-danger">
+                <h4>500 Server Error</h4>
+                <p>An error occurred while processing your request.</p>
+                <a href="/" class="btn btn-primary">Go Back Home</a>
+
+        <% }  %>    
+  </div>
+
+</div>
+    
+<%- include('partials/footer.ejs') %>
